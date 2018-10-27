@@ -1,0 +1,18 @@
+<Student>
+  <firstname>VasiaJake</firstname>
+  <lastname>PupkinJake</lastname>
+  <studentid>KB123456</studentid>
+  <course>4</course>
+  <recordbookid>0</recordbookid>
+  <averagegrade>0</averagegrade>
+  <idcode>0</idcode>
+</Student>
+<Student>
+  <firstname>IvanJake</firstname>
+  <lastname>IvanovJake</lastname>
+  <studentid>KB987456</studentid>
+  <course>1</course>
+  <recordbookid>0</recordbookid>
+  <averagegrade>0</averagegrade>
+  <idcode>0</idcode>
+</Student>

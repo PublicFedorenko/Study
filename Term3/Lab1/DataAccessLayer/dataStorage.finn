@@ -1,0 +1,56 @@
+Student {
+  "firstname": "Vasia",
+  "lastname": "Pupkin",
+  "studentid": "KB123456",
+  "course": "2",
+  "recordbookid": "527826",
+  "gender": "Male",
+  "averagegrade": "2.2",
+  "idcode": "183571"
+};
+Student {
+  "firstname": "Ivan",
+  "lastname": "Ivanov",
+  "studentid": "KB987654",
+  "course": "3",
+  "recordbookid": "532879",
+  "gender": "Male",
+  "averagegrade": "4.3",
+  "idcode": "626709"
+};
+Student {
+  "firstname": "Anastasia",
+  "lastname": "Gydina",
+  "studentid": "KU523589",
+  "course": "1",
+  "recordbookid": "697144",
+  "gender": "Female",
+  "averagegrade": "5",
+  "idcode": "859092"
+};
+Student {
+  "firstname": "Yaroslav",
+  "lastname": "Bay",
+  "studentid": "NF526341",
+  "course": "5",
+  "recordbookid": "113904",
+  "gender": "Male",
+  "averagegrade": "3.7",
+  "idcode": "390005"
+};
+Teacher {
+  "firstname": "Maria",
+  "lastname": "Petrovna",
+  "internalid": "TT75438",
+  "workexperience": "4",
+  "gender": "Female",
+  "idcode": "26426778"
+};
+Teacher {
+  "firstname": "Anna",
+  "lastname": "Polonska",
+  "internalid": "JK26241",
+  "workexperience": "15",
+  "gender": "Female",
+  "idcode": "15488942"
+};

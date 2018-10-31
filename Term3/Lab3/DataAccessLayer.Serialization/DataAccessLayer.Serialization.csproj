@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BinaryDataSerializer.cs" />
     <Compile Include="IDataSerializer.cs" />
     <Compile Include="XmlDataSerializer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

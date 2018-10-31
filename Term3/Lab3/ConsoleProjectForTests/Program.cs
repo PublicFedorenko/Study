@@ -19,16 +19,16 @@ namespace ConsoleProjectForTests
             Product product1 = new Product("name", "1", new DateTime(2018, 10, 07), 90);
             Product product2 = new Product("name", "1", new DateTime(2018, 10, 07), 90);
             Product[] products = new Product[] { product, product1, product2 };
-            string filePath = @"C:\Progbase\Study\Term3\Lab3\ConsoleProjectForTests\Products.dat";
+            string filePath = @"C:\Progbase\Study\Term3\Lab3\ConsoleProjectForTests\Products.soap";
 
 
 
-            BinaryDataSerializer<Product[]> binarySerializer = new BinaryDataSerializer<Product[]>();
-            binarySerializer.Serialize(products, filePath, FileMode.Truncate);
+            SoapSerializer<Product[]> soapSerializer = new SoapSerializer<Product[]>();
+            soapSerializer.Serialize(products, filePath, FileMode.Truncate);
 
 
 
-            Product[] newProducts = binarySerializer.Deserialize(filePath, FileMode.Open);
+            Product[] newProducts = soapSerializer.Deserialize(filePath, FileMode.Open);
             foreach (Product pr in newProducts)
             {
                 Console.WriteLine("Name " + pr.Name);

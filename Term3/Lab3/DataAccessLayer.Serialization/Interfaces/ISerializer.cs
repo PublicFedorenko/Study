@@ -7,7 +7,7 @@ using System.IO;
 
 namespace DataAccessLayer.Serialization
 {
-    interface IDataSerializer<T>
+    interface ISerializer<T>
     {
         void Serialize(T item, string filePath, FileMode fileMode);
         T Deserialize(string filePath, FileMode fileMode);

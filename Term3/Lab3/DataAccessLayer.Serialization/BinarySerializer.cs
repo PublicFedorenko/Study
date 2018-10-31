@@ -1,27 +1,27 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Xml.Serialization;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.IO;
 
 namespace DataAccessLayer.Serialization
 {
-    public class XmlDataSerializer<T> : IDataSerializer<T>
+    public class BinarySerializer<T> : ISerializer<T>
     {
-        private XmlSerializer xmlSerializer;
+        private BinaryFormatter formatter;
 
-        public XmlDataSerializer()
+        public BinarySerializer()
         {
-            xmlSerializer = new XmlSerializer(typeof(T));
+            formatter = new BinaryFormatter();
         }
 
         public void Serialize(T item, string filePath, FileMode fileMode)
         {
             using (FileStream fs = new FileStream(filePath, fileMode))
             {
-                xmlSerializer.Serialize(fs, item);
+                formatter.Serialize(fs, item);
             }
         }
 
@@ -29,7 +29,7 @@ namespace DataAccessLayer.Serialization
         {
             using (FileStream fs = new FileStream(filePath, fileMode))
             {
-                return (T) xmlSerializer.Deserialize(fs);
+                return (T) formatter.Deserialize(fs);
             }
         }
     }

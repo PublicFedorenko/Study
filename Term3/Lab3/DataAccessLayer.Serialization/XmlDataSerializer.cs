@@ -8,7 +8,7 @@ using System.Xml.Serialization;
 
 namespace DataAccessLayer.Serialization
 {
-    public class XmlDataSerializer<T>
+    public class XmlDataSerializer<T> : IDataSerializer<T>
     {
         private XmlSerializer xmlSerializer;
 

@@ -19,7 +19,7 @@ namespace ConsoleProjectForTests
             Product product1 = new Product("name", "1", new DateTime(2018, 10, 07), 90);
             Product product2 = new Product("name", "1", new DateTime(2018, 10, 07), 90);
             Product[] products = new Product[] { product, product1, product2 };
-            string filePath = @"C:\Progbase\Study\Term3\Lab3\ConsoleProjectForTests\Products.txt";
+            string filePath = @"C:\Progbase\Study\Term3\Lab3\ConsoleProjectForTests\Products.dat";
 
 
 

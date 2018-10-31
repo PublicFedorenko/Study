@@ -60,7 +60,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Products.txt" />
+    <None Include="Products.dat" />
     <Content Include="Products.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

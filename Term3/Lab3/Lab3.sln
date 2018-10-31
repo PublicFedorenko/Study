@@ -21,6 +21,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusinessLogicLayer.Services
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusinessLogicLayer.Entities", "BusinessLogicLayer.Entities\BusinessLogicLayer.Entities.csproj", "{216D9C84-BC4E-4B30-86EC-A3F14660DF7E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserInterface", "UserInterface\UserInterface.csproj", "{D6790818-03B2-42D2-8BF0-015F58CD8BEE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -43,6 +45,10 @@ Global
 		{216D9C84-BC4E-4B30-86EC-A3F14660DF7E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{216D9C84-BC4E-4B30-86EC-A3F14660DF7E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{216D9C84-BC4E-4B30-86EC-A3F14660DF7E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D6790818-03B2-42D2-8BF0-015F58CD8BEE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D6790818-03B2-42D2-8BF0-015F58CD8BEE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D6790818-03B2-42D2-8BF0-015F58CD8BEE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D6790818-03B2-42D2-8BF0-015F58CD8BEE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -55,6 +61,7 @@ Global
 		{2C446E23-1731-44B1-9153-1412BD0A8DFD} = {5C905084-9EB6-4F31-9925-29CEED333C8A}
 		{4251BB6E-24B0-4F48-A60E-71B50C0991FC} = {AC30014D-8968-49F2-BA67-E653E6A52ED9}
 		{216D9C84-BC4E-4B30-86EC-A3F14660DF7E} = {AC30014D-8968-49F2-BA67-E653E6A52ED9}
+		{D6790818-03B2-42D2-8BF0-015F58CD8BEE} = {38117A04-D25B-4510-A4A1-6708FE52D3E0}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A7B0E5AE-EB05-48E4-9882-BE200DBA1732}

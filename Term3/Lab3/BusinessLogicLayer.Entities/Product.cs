@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+using System.Runtime.Serialization;
+
 namespace BusinessLogicLayer.Entities
 {
     [Serializable]
@@ -15,10 +17,15 @@ namespace BusinessLogicLayer.Entities
         private int lifetime;
         private DateTime expirationDate;
 
+        [DataMember]
         public string Name { get => name; set => name = value; }
+        [DataMember]
         public string Id { get => id; set => id = value; }
+        [DataMember]
         public DateTime DateOfManufacture { get => dateOfManufacture; set => dateOfManufacture = value; }
+        [DataMember]
         public int Lifetime { get => lifetime; set => lifetime = value; }
+        [DataMember]
         public DateTime ExpirationDate { get => expirationDate; set => expirationDate = value; }
 
         public Product() { }

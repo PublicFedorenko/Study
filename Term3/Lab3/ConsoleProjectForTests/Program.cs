@@ -19,16 +19,29 @@ namespace ConsoleProjectForTests
             Product product1 = new Product("name", "1", new DateTime(2018, 10, 07), 90);
             Product product2 = new Product("name", "1", new DateTime(2018, 10, 07), 90);
             Product[] products = new Product[] { product, product1, product2 };
-            string filePath = @"C:\Progbase\Study\Term3\Lab3\ConsoleProjectForTests\Products.soap";
 
 
 
+            string filePath = @"C:\Progbase\Study\Term3\Lab3\ConsoleProjectForTests\Products.xml";
+            XmlSerializer<Product[]> xmlSerializer = new XmlSerializer<Product[]>();
+            xmlSerializer.Serialize(products, filePath, FileMode.Truncate);
+
+            filePath = @"C:\Progbase\Study\Term3\Lab3\ConsoleProjectForTests\Products.json";
+            JsonSerializer<Product[]> jsonSerializer = new JsonSerializer<Product[]>();
+            jsonSerializer.Serialize(products, filePath, FileMode.Truncate);
+
+            filePath = @"C:\Progbase\Study\Term3\Lab3\ConsoleProjectForTests\Products.soap";
             SoapSerializer<Product[]> soapSerializer = new SoapSerializer<Product[]>();
             soapSerializer.Serialize(products, filePath, FileMode.Truncate);
 
+            filePath = @"C:\Progbase\Study\Term3\Lab3\ConsoleProjectForTests\Products.dat";
+            BinarySerializer<Product[]> binarySerializer = new BinarySerializer<Product[]>();
+            binarySerializer.Serialize(products, filePath, FileMode.Truncate);
 
 
-            Product[] newProducts = soapSerializer.Deserialize(filePath, FileMode.Open);
+
+            filePath = @"C:\Progbase\Study\Term3\Lab3\ConsoleProjectForTests\Products.json";
+            Product[] newProducts = jsonSerializer.Deserialize(filePath, FileMode.Open);
             foreach (Product pr in newProducts)
             {
                 Console.WriteLine("Name " + pr.Name);

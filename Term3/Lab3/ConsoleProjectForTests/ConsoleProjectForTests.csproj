@@ -56,6 +56,10 @@
       <Project>{216D9C84-BC4E-4B30-86EC-A3F14660DF7E}</Project>
       <Name>BusinessLogicLayer.Entities</Name>
     </ProjectReference>
+    <ProjectReference Include="..\BusinessLogicLayer.Services\BusinessLogicLayer.Services.csproj">
+      <Project>{4251bb6e-24b0-4f48-a60e-71b50c0991fc}</Project>
+      <Name>BusinessLogicLayer.Services</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DataAccessLayer.Serialization\DataAccessLayer.Serialization.csproj">
       <Project>{2C446E23-1731-44B1-9153-1412BD0A8DFD}</Project>
       <Name>DataAccessLayer.Serialization</Name>

@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using System.IO;
 using System.Xml.Serialization;
 using DataAccessLayer.Serialization;
+using BusinessLogicLayer.Services;
 
 namespace ConsoleProjectForTests
 {
@@ -20,6 +21,9 @@ namespace ConsoleProjectForTests
             Product product2 = new Product("name", "1", new DateTime(2018, 10, 07), 90);
             Product[] products = new Product[] { product, product1, product2 };
 
+            ProductService productHandler = new ProductService(new JsonSerializer<Product>());
+            List<Product> items = (List<Product>) productHandler.Read();
+            productHandler.Write(items);
 
 
             string filePath = @"C:\Progbase\Study\Term3\Lab3\ConsoleProjectForTests\Products.xml";

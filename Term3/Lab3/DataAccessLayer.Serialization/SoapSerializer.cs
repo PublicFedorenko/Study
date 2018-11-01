@@ -8,7 +8,7 @@ using System.IO;
 
 namespace DataAccessLayer.Serialization
 {
-    public class SoapSerializer<T> : ISerializer<T> 
+    public class SoapSerializer<T> : ISerializer<T> where T : class
     {
         SoapFormatter soapFormatter;
 

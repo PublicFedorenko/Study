@@ -8,7 +8,7 @@ using System.IO;
 
 namespace DataAccessLayer.Serialization
 {
-    public class BinarySerializer<T> : ISerializer<T>
+    public class BinarySerializer<T> : ISerializer<T> where T : class
     {
         private BinaryFormatter formatter;
 

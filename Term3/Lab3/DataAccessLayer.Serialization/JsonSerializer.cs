@@ -8,7 +8,7 @@ using System.IO;
 
 namespace DataAccessLayer.Serialization
 {
-    public class JsonSerializer<T> : ISerializer<T>
+    public class JsonSerializer<T> : ISerializer<T> where T : class
     {
         private DataContractJsonSerializer jsonSerializer;
 

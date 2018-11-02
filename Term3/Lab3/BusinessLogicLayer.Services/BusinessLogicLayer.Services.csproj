@@ -45,6 +45,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\BinarySerializationService.cs" />
     <Compile Include="Services\JsonSerializerService.cs" />
+    <Compile Include="Services\SoapSerializationService.cs" />
     <Compile Include="Services\XmlSerializerService.cs" />
   </ItemGroup>
   <ItemGroup>

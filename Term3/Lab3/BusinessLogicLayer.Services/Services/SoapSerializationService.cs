@@ -8,11 +8,11 @@ using System.Threading.Tasks;
 
 namespace BusinessLogicLayer.Services.Services
 {
-    public class BinarySerializationService<T> : SerializationService<T> where T : class 
+    public class SoapSerializationService<T> : SerializationService<T> where T : class
     {
-        public BinarySerializationService()
+        public SoapSerializationService()
         {
-            Serializer = new BinarySerializer<T>();
+            Serializer = new SoapSerializer<T>();
         }
     }
 }

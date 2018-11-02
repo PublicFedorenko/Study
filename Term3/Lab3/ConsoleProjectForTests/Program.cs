@@ -7,7 +7,6 @@ using System.Threading.Tasks;
 using System.IO;
 using System.Xml.Serialization;
 using BusinessLogicLayer.Services;
-using Ninject;
 using System.Reflection;
 using BusinessLogicLayer.Services.Intefaces;
 

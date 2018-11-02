@@ -14,11 +14,11 @@ namespace BusinessLogicLayer.Services.Intefaces
 
         public ISerializer<T> Serializer { get => _serializer; set => _serializer = value; }
 
-        void Write(T item, string filePath, FileMode fileMode)
+        public void Write(T item, string filePath, FileMode fileMode)
         {
             _serializer.Serialize(item, filePath, fileMode);
         }
-        T Read(string filePath, FileMode fileMode)
+        public T Read(string filePath, FileMode fileMode)
         {
             return _serializer.Deserialize(filePath, fileMode);
         }

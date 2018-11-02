@@ -33,9 +33,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Ninject, Version=3.3.4.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
-      <HintPath>..\packages\Ninject.3.3.4\lib\net45\Ninject.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -51,7 +48,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="packages.config" />
     <None Include="Products.json" />
     <None Include="Products.soap" />
   </ItemGroup>
@@ -63,10 +59,6 @@
     <ProjectReference Include="..\BusinessLogicLayer.Services\BusinessLogicLayer.Services.csproj">
       <Project>{4251bb6e-24b0-4f48-a60e-71b50c0991fc}</Project>
       <Name>BusinessLogicLayer.Services</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\DataAccessLayer.Serialization\DataAccessLayer.Serialization.csproj">
-      <Project>{2C446E23-1731-44B1-9153-1412BD0A8DFD}</Project>
-      <Name>DataAccessLayer.Serialization</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

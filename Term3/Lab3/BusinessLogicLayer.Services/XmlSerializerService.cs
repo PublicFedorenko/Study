@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using BusinessLogicLayer.Services.Intefaces;
@@ -9,23 +10,11 @@ using DataAccessLayer.Serialization;
 
 namespace BusinessLogicLayer.Services
 {
-    public class XmlSerializerService<T> : IEntityService<T> where T : class
+    public class XmlSerializerService<T> : SerializationService<T> where T : class
     {
-        private ISerializer<T> _iSerializer;
-
-        public XmlSerializerService(ISerializer<T> iSerializer)
+        public XmlSerializerService()
         {
-            _iSerializer = iSerializer;
-        }
-
-        public void Write(T item, string filePath, FileMode fileMode)
-        {
-            _iSerializer.Serialize(item, filePath, fileMode);
-        }
-
-        public T Read(string filePath, FileMode fileMode)
-        {
-            return _iSerializer.Deserialize(filePath, fileMode);
+           Serializer = new XmlSerializer<T>();
         }
     }
 }

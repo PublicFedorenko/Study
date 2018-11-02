@@ -18,6 +18,7 @@ namespace BusinessLogicLayer.Services.Intefaces
         {
             _serializer.Serialize(item, filePath, fileMode);
         }
+
         public T Read(string filePath, FileMode fileMode)
         {
             return _serializer.Deserialize(filePath, fileMode);

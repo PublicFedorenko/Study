@@ -43,11 +43,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BinarySerializer.cs" />
+    <Compile Include="Serializers\BinarySerializer.cs" />
     <Compile Include="Interfaces\ISerializer.cs" />
-    <Compile Include="JsonSerializer.cs" />
-    <Compile Include="SoapSerializer.cs" />
-    <Compile Include="XmlSerializer.cs" />
+    <Compile Include="Serializers\JsonSerializer.cs" />
+    <Compile Include="Serializers\SoapSerializer.cs" />
+    <Compile Include="Serializers\XmlSerializer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

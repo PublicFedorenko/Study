@@ -43,7 +43,8 @@
   <ItemGroup>
     <Compile Include="Intefaces\ISerializationService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="XmlSerializerService.cs" />
+    <Compile Include="Services\JsonSerializerService.cs" />
+    <Compile Include="Services\XmlSerializerService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BusinessLogicLayer.Entities\BusinessLogicLayer.Entities.csproj">

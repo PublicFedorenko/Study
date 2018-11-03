@@ -8,11 +8,11 @@ using System.Threading.Tasks;
 using BusinessLogicLayer.Services.Intefaces;
 using DataAccessLayer.Serialization;
 
-namespace BusinessLogicLayer.Services
+namespace BusinessLogicLayer.Services.Services
 {
-    public class XmlSerializerService<T> : SerializationService<T> where T : class
+    public class XmlSerializationService<T> : SerializationService<T> where T : class
     {
-        public XmlSerializerService()
+        public XmlSerializationService()
         {
            Serializer = new XmlSerializer<T>();
         }

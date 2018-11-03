@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace BusinessLogicLayer.Services.Services
 {
-    public class JsonSerializerService<T> : SerializationService<T> where T : class
+    public class JsonSerializationService<T> : SerializationService<T> where T : class
     {
-        public JsonSerializerService()
+        public JsonSerializationService()
         {
             Serializer = new JsonSerializer<T>();
         }

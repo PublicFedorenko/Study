@@ -27,7 +27,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Storage", "Storage", "{AA4C
 	ProjectSection(SolutionItems) = preProject
 		Products.bin = Products.bin
 		Products.json = Products.json
-		Products.soap = Products.soap
 		Products.xml = Products.xml
 	EndProjectSection
 EndProject

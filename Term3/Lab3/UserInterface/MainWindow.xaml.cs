@@ -37,7 +37,6 @@ namespace UserInterface
             ComboBox_SerializationType.Items.Add("—Select file type—");
             ComboBox_SerializationType.Items.Add(".xml");
             ComboBox_SerializationType.Items.Add(".json");
-            ComboBox_SerializationType.Items.Add(".soap");
             ComboBox_SerializationType.Items.Add(".bin");
             #endregion
 
@@ -74,19 +73,6 @@ namespace UserInterface
                                 {
                                     JsonSerializationService<List<Product>> jsonService = new JsonSerializationService<List<Product>>();
                                     DataGrid_Main.ItemsSource = jsonService.Read(filePath, System.IO.FileMode.Open);
-                                }
-                                break;
-                        }
-                    }
-                    break;
-                case ".soap":
-                    {
-                        switch (ComboBox_EntityType.SelectedItem.ToString())
-                        {
-                            case "Product":
-                                {
-                                    SoapSerializationService<List<Product>> soapService = new SoapSerializationService<List<Product>>();
-                                    DataGrid_Main.ItemsSource = soapService.Read(filePath, System.IO.FileMode.Open);
                                 }
                                 break;
                         }
@@ -134,19 +120,6 @@ namespace UserInterface
                                 {
                                     JsonSerializationService<List<Product>> jsonService = new JsonSerializationService<List<Product>>();
                                     jsonService.Write((List<Product>) DataGrid_Main.ItemsSource, filePath, System.IO.FileMode.Truncate);
-                                }
-                                break;
-                        }
-                    }
-                    break;
-                case ".soap":
-                    {
-                        switch (ComboBox_EntityType.SelectedItem.ToString())
-                        {
-                            case "Product":
-                                {
-                                    SoapSerializationService<List<Product>> soapService = new SoapSerializationService<List<Product>>();
-                                    soapService.Write((List<Product>) DataGrid_Main.ItemsSource, filePath, System.IO.FileMode.Truncate);
                                 }
                                 break;
                         }

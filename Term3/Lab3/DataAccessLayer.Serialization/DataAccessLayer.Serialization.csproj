@@ -46,7 +46,6 @@
     <Compile Include="Serializers\BinarySerializer.cs" />
     <Compile Include="Interfaces\ISerializer.cs" />
     <Compile Include="Serializers\JsonSerializer.cs" />
-    <Compile Include="Serializers\SoapSerializer.cs" />
     <Compile Include="Serializers\XmlSerializer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

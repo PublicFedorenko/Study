@@ -10,7 +10,7 @@
         Loaded="Window_Loaded">
     <Grid>
         <DataGrid x:Name="DataGrid_Main" HorizontalAlignment="Left" Height="300" Margin="10,10,0,0" VerticalAlignment="Top" Width="774"/>
-        <TextBox x:Name="TextBox_FilePath" HorizontalAlignment="Left" Height="23" Margin="10,342,0,0" Text="C:\Progbase\Study\Term3\Lab3\Products.xml" VerticalAlignment="Top" Width="242.4" UseLayoutRounding="False"/>
+        <TextBox x:Name="TextBox_FilePath" HorizontalAlignment="Left" Height="23" Margin="10,342,0,0" Text="C:\Progbase\Study\Term3\Lab3\Products" VerticalAlignment="Top" Width="245.6" UseLayoutRounding="False"/>
         <ComboBox x:Name="ComboBox_SerializationType" HorizontalAlignment="Left" Margin="271,342,0,0" VerticalAlignment="Top" Width="133"/>
         <ComboBox x:Name="ComboBox_EntityType" HorizontalAlignment="Left" Margin="271,370,0,0" VerticalAlignment="Top" Width="133"/>
         <Button x:Name="Button_Clear" Content="Clear" HorizontalAlignment="Left" Margin="423,383,0,0" VerticalAlignment="Top" Width="75" Cursor="Hand" Click="Button_Clear_Click"/>

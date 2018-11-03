@@ -11,13 +11,16 @@
     <Grid>
         <DataGrid x:Name="DataGrid_Main" HorizontalAlignment="Left" Height="299" Margin="10,10,0,0" VerticalAlignment="Top" Width="720"/>
         <TextBox x:Name="TextBox_FilePath" HorizontalAlignment="Left" Height="23" Margin="10.4,343.85,0,0" Text="C:\Progbase\Study\Term3\Lab3" VerticalAlignment="Top" Width="256" UseLayoutRounding="False"/>
-        <ComboBox x:Name="ComboBox_EntityType" HorizontalAlignment="Left" Margin="282,378,0,0" VerticalAlignment="Top" Width="133"/>
-        <Button x:Name="Button_Clear" Content="Clear" HorizontalAlignment="Left" Margin="434,379,0,0" VerticalAlignment="Top" Width="75" Cursor="Hand" Click="Button_Clear_Click"/>
-        <Button x:Name="Button_Read" Content="Read" HorizontalAlignment="Left" Margin="434,323,0,0" VerticalAlignment="Top" Width="75" Cursor="Hand" Click="Button_Read_Click"/>
-        <Button x:Name="Button_Save" Content="Save" HorizontalAlignment="Left" Margin="434,351,0,0" VerticalAlignment="Top" Width="75" Cursor="Hand" Click="Button_Save_Click"/>
+        <ComboBox x:Name="ComboBox_EntityType" HorizontalAlignment="Left" Margin="376,332,0,0" VerticalAlignment="Top" Width="133"
+                  SelectionChanged="ComboBox_EntityType_SelectionChanged"/>
+        <Button x:Name="Button_Clear" Content="Clear" HorizontalAlignment="Left" Margin="735,69,0,0" VerticalAlignment="Top" Width="45" Cursor="Hand" Click="Button_Clear_Click"/>
+        <Button x:Name="Button_Read" Content="Read" HorizontalAlignment="Left" Margin="376,359,0,0" VerticalAlignment="Top" Width="75" Cursor="Hand" Click="Button_Read_Click"/>
+        <Button x:Name="Button_Save" Content="Save" HorizontalAlignment="Left" Margin="376,383,0,0" VerticalAlignment="Top" Width="75" Cursor="Hand" Click="Button_Save_Click"/>
         <Button x:Name="Button_Exit" Content="Exit" HorizontalAlignment="Left" Margin="689,378,0,0" VerticalAlignment="Top" Width="75" Cursor="Hand" Click="Button_Exit_Click"/>
         <Button x:Name="Button_Browse" Content="Browse..." HorizontalAlignment="Left" Margin="282,343,0,0" VerticalAlignment="Top" Width="68" Click="Button_Browse_Click" Height="24" Cursor="Hand"/>
         <Label Content="FIle:" HorizontalAlignment="Left" Margin="10,314,0,0" VerticalAlignment="Top" Width="38" FontSize="14"/>
+        <Button Content="Button" HorizontalAlignment="Left" Margin="735,21,0,0" VerticalAlignment="Top" Width="45"/>
+        <Button Content="Button" HorizontalAlignment="Left" Margin="735,45,0,0" VerticalAlignment="Top" Width="45"/>
 
     </Grid>
 </Window>

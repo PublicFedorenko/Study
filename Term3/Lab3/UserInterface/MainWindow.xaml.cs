@@ -1,9 +1,12 @@
 ﻿using BusinessLogicLayer.Entities;
 using BusinessLogicLayer.Services.Services;
+using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -15,8 +18,6 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-
-
 namespace UserInterface
 {
     /// <summary>
@@ -24,6 +25,10 @@ namespace UserInterface
     /// </summary>
     public partial class MainWindow : Window
     {
+        private readonly string defaultPath = System.IO.Path
+            .GetFullPath(System.IO.Path
+            .Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\..\"));
+
         public MainWindow()
         {
             InitializeComponent();
@@ -31,25 +36,23 @@ namespace UserInterface
 
         public void Window_Loaded(object sender, EventArgs e)
         {
-            #region SerializationTypes
-            ComboBox_SerializationType.SelectedIndex = 0;
-            ComboBox_SerializationType.Items.Add("—Select file type—");
-            ComboBox_SerializationType.Items.Add(".xml");
-            ComboBox_SerializationType.Items.Add(".json");
-            ComboBox_SerializationType.Items.Add(".bin");
-            #endregion
-
             #region EntityTypes
             ComboBox_EntityType.SelectedIndex = 0;
             ComboBox_EntityType.Items.Add("—Select type—");
             ComboBox_EntityType.Items.Add("Product");
             #endregion
+
+            #region DefaultFilePath
+            TextBox_FilePath.Text = defaultPath;
+            #endregion
         }
 
         private void Button_Read_Click(object sender, RoutedEventArgs e)
         {
-            string filePath = TextBox_FilePath.Text + ComboBox_SerializationType.SelectedItem.ToString();
-            switch (ComboBox_SerializationType.SelectedItem.ToString())
+            string filePath = TextBox_FilePath.Text;
+            Regex regEx = new Regex(@"(?<=.+)\..+");    // *.fileFormat
+            string format = regEx.Match(TextBox_FilePath.Text).Value;
+            switch (format)
             {
                 case ".xml":
                     {
@@ -90,13 +93,16 @@ namespace UserInterface
                         }
                     }
                     break;
+                    //TODO add default with exception
             }
         }
 
         private void Button_Save_Click(object sender, RoutedEventArgs e)
         {
-            string filePath = TextBox_FilePath.Text + ComboBox_SerializationType.SelectedItem.ToString();
-            switch (ComboBox_SerializationType.SelectedItem.ToString())
+            string filePath = TextBox_FilePath.Text;
+            Regex regEx = new Regex(@"(?<=.+)\..+");    // *.fileFormat
+            string format = regEx.Match(TextBox_FilePath.Text).Value;
+            switch (format)
             {
                 case ".xml":
                     {
@@ -105,7 +111,7 @@ namespace UserInterface
                             case "Product":
                                 {
                                     XmlSerializationService<List<Product>> xmlService = new XmlSerializationService<List<Product>>();
-                                    xmlService.Write((List<Product>) DataGrid_Main.ItemsSource, filePath, System.IO.FileMode.Truncate);
+                                    xmlService.Write((List<Product>)DataGrid_Main.ItemsSource, filePath, System.IO.FileMode.Truncate);
                                 }
                                 break;
                         }
@@ -118,7 +124,7 @@ namespace UserInterface
                             case "Product":
                                 {
                                     JsonSerializationService<List<Product>> jsonService = new JsonSerializationService<List<Product>>();
-                                    jsonService.Write((List<Product>) DataGrid_Main.ItemsSource, filePath, System.IO.FileMode.Truncate);
+                                    jsonService.Write((List<Product>)DataGrid_Main.ItemsSource, filePath, System.IO.FileMode.Truncate);
                                 }
                                 break;
                         }
@@ -131,12 +137,13 @@ namespace UserInterface
                             case "Product":
                                 {
                                     BinarySerializationService<List<Product>> binService = new BinarySerializationService<List<Product>>();
-                                    binService.Write((List<Product>) DataGrid_Main.ItemsSource, filePath, System.IO.FileMode.Truncate);
+                                    binService.Write((List<Product>)DataGrid_Main.ItemsSource, filePath, System.IO.FileMode.Truncate);
                                 }
                                 break;
                         }
                     }
                     break;
+                    //TODO add default with exception
             }
         }
 
@@ -150,6 +157,15 @@ namespace UserInterface
         private void Button_Exit_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
+        }
+
+        private void Button_Browse_Click(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.InitialDirectory = Directory.Exists(TextBox_FilePath.Text) ? TextBox_FilePath.Text : defaultPath;
+            openFileDialog.Filter = "Storage Files (*.xml, *.json, *.bin, *.custom) | *.xml;*.json;*.bin;*.custom";
+            openFileDialog.ShowDialog();
+            TextBox_FilePath.Text = openFileDialog.FileName;
         }
     }
 }

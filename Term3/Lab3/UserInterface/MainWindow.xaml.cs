@@ -25,13 +25,12 @@ namespace UserInterface
     /// </summary>
     public partial class MainWindow : Window
     {
-        private readonly string defaultPath = System.IO.Path
-            .GetFullPath(System.IO.Path
-            .Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\..\"));
+        private readonly Config MainConfig;
 
         public MainWindow()
         {
             InitializeComponent();
+            MainConfig = new Config();
         }
 
         public void Window_Loaded(object sender, RoutedEventArgs e)
@@ -44,15 +43,14 @@ namespace UserInterface
             #endregion
 
             #region DefaultFilePath
-            TextBox_FilePath.Text = defaultPath;
+            TextBox_FilePath.Text = MainConfig.DefaultPath;
             #endregion
         }
 
         private void Button_Read_Click(object sender, RoutedEventArgs e)
         {
-            #region
             string filePath = TextBox_FilePath.Text;    //TODO add check if filePath is valid
-            #endregion
+            MainConfig.CurrentEntity = ComboBox_EntityType.SelectedItem.ToString();
 
             #region ParseFileFormat
             Regex regEx = new Regex(@"(?<=.+)\..+");    // *.fileFormat
@@ -68,13 +66,13 @@ namespace UserInterface
                             case "Product":
                                 {
                                     XmlSerializationService<List<Product>> xmlService = new XmlSerializationService<List<Product>>();
-                                    DataGrid_Main.ItemsSource = xmlService.Read(filePath, System.IO.FileMode.Open);
+                                    DataGrid_Main.ItemsSource = xmlService.Read(filePath, MainConfig.FileReadMode);
                                 }
                                 break;
                             case "Student":
                                 {
                                     XmlSerializationService<List<Student>> xmlService = new XmlSerializationService<List<Student>>();
-                                    DataGrid_Main.ItemsSource = xmlService.Read(filePath, System.IO.FileMode.Open);
+                                    DataGrid_Main.ItemsSource = xmlService.Read(filePath, MainConfig.FileReadMode);
                                 }
                                 break;
                         }
@@ -87,13 +85,13 @@ namespace UserInterface
                             case "Product":
                                 {
                                     JsonSerializationService<List<Product>> jsonService = new JsonSerializationService<List<Product>>();
-                                    DataGrid_Main.ItemsSource = jsonService.Read(filePath, System.IO.FileMode.Open);
+                                    DataGrid_Main.ItemsSource = jsonService.Read(filePath, MainConfig.FileReadMode);
                                 }
                                 break;
                             case "Student":
                                 {
                                     JsonSerializationService<List<Student>> jsonService = new JsonSerializationService<List<Student>>();
-                                    DataGrid_Main.ItemsSource = jsonService.Read(filePath, System.IO.FileMode.Open);
+                                    DataGrid_Main.ItemsSource = jsonService.Read(filePath, MainConfig.FileReadMode);
                                 }
                                 break;
                         }
@@ -106,7 +104,7 @@ namespace UserInterface
                             case "Product":
                                 {
                                     BinarySerializationService<List<Product>> binService = new BinarySerializationService<List<Product>>();
-                                    DataGrid_Main.ItemsSource = binService.Read(filePath, System.IO.FileMode.Open);
+                                    DataGrid_Main.ItemsSource = binService.Read(filePath, MainConfig.FileReadMode);
                                 }
                                 break;
                             case "Student":
@@ -135,7 +133,7 @@ namespace UserInterface
                             case "Product":
                                 {
                                     XmlSerializationService<List<Product>> xmlService = new XmlSerializationService<List<Product>>();
-                                    xmlService.Write((List<Product>)DataGrid_Main.ItemsSource, filePath, System.IO.FileMode.Truncate);
+                                    xmlService.Write((List<Product>)DataGrid_Main.ItemsSource, filePath, MainConfig.FileWriteMode);
                                 }
                                 break;
                             case "Student":
@@ -153,7 +151,7 @@ namespace UserInterface
                             case "Product":
                                 {
                                     JsonSerializationService<List<Product>> jsonService = new JsonSerializationService<List<Product>>();
-                                    jsonService.Write((List<Product>)DataGrid_Main.ItemsSource, filePath, System.IO.FileMode.Truncate);
+                                    jsonService.Write((List<Product>)DataGrid_Main.ItemsSource, filePath, MainConfig.FileWriteMode);
                                 }
                                 break;
                             case "Student":
@@ -171,7 +169,7 @@ namespace UserInterface
                             case "Product":
                                 {
                                     BinarySerializationService<List<Product>> binService = new BinarySerializationService<List<Product>>();
-                                    binService.Write((List<Product>)DataGrid_Main.ItemsSource, filePath, System.IO.FileMode.Truncate);
+                                    binService.Write((List<Product>)DataGrid_Main.ItemsSource, filePath, MainConfig.FileWriteMode);
                                 }
                                 break;
                             case "Student":
@@ -201,15 +199,18 @@ namespace UserInterface
         private void Button_Browse_Click(object sender, RoutedEventArgs e)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.InitialDirectory = Directory.Exists(TextBox_FilePath.Text) ? TextBox_FilePath.Text : defaultPath;
+            openFileDialog.InitialDirectory = Directory.Exists(TextBox_FilePath.Text) ? TextBox_FilePath.Text : MainConfig.DefaultPath;
             openFileDialog.Filter = "Storage Files (*.xml, *.json, *.bin, *.custom) | *.xml;*.json;*.bin;*.custom";
             openFileDialog.ShowDialog();
             TextBox_FilePath.Text = openFileDialog.FileName;
         }
 
-        private void ComboBox_EntityType_SelectionChanged(object sender, RoutedEventArgs e)
+        private void ComboBox_EntityType_SelectionChanged(object sender, RoutedEventArgs e) //TODO rewrite
         {
-            Button_Read.IsEnabled = ! Button_Read.IsEnabled;
+            if (ComboBox_EntityType.SelectedItem.ToString() != MainConfig.CurrentEntity)
+                Button_Read.IsEnabled = true;
+            else
+                Button_Read.IsEnabled = false;
         }
     }
 }

@@ -48,8 +48,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="Products.json" />
-    <None Include="Products.soap" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BusinessLogicLayer.Entities\BusinessLogicLayer.Entities.csproj">
@@ -60,10 +58,6 @@
       <Project>{4251bb6e-24b0-4f48-a60e-71b50c0991fc}</Project>
       <Name>BusinessLogicLayer.Services</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Products.dat" />
-    <Content Include="Products.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <ProjectExtensions>

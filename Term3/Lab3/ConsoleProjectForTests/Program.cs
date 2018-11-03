@@ -20,15 +20,18 @@ namespace ConsoleProjectForTests
             Product product1 = new Product("name", "1", new DateTime(2018, 10, 07), 90);
             Product product2 = new Product("name", "1", new DateTime(2018, 10, 07), 90);
             Product[] products = new Product[] { product, product1, product2 };
-            string filePath = @"C:\Progbase\Study\Term3\Lab3\ConsoleProjectForTests\Products.xml";
-
-            //StandardKernel kernel = new StandardKernel();
-            //kernel.Load(Assembly.GetExecutingAssembly());
+            string filePath = @"C:\Progbase\Study\Term3\Lab3\Products.xml"; 
 
             // пример вызова
             XmlSerializerService<Product> xmlSerializerService = new XmlSerializerService<Product>();
             xmlSerializerService.Write(product, filePath, FileMode.Truncate);   
             Product newProduct = xmlSerializerService.Read(filePath, FileMode.Open);
+
+            Console.WriteLine(newProduct.Name);
+            Console.WriteLine(newProduct.Id);
+            Console.WriteLine(newProduct.DateOfManufacture);
+            Console.WriteLine(newProduct.Lifetime);
+            Console.WriteLine(newProduct.ExpirationDate);
         }
     }
 }

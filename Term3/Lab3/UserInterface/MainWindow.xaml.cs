@@ -117,6 +117,8 @@ namespace UserInterface
                     break;
                     //TODO add default with exception
             }
+
+            Button_Read.IsEnabled = false;
         }
 
         private void Button_Save_Click(object sender, RoutedEventArgs e)
@@ -207,10 +209,9 @@ namespace UserInterface
 
         private void ComboBox_EntityType_SelectionChanged(object sender, RoutedEventArgs e) //TODO rewrite
         {
-            if (ComboBox_EntityType.SelectedItem.ToString() != MainConfig.CurrentEntity)
-                Button_Read.IsEnabled = true;
-            else
-                Button_Read.IsEnabled = false;
+            string selectedEntity = ComboBox_EntityType.SelectedItem.ToString();
+            bool isDefaultType = Convert.ToBoolean(ComboBox_EntityType.SelectedIndex);
+            Button_Read.IsEnabled = isDefaultType && selectedEntity != MainConfig.CurrentEntity; 
         }
     }
 }

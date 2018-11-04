@@ -24,10 +24,19 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserInterface", "UserInterface\UserInterface.csproj", "{D6790818-03B2-42D2-8BF0-015F58CD8BEE}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Storage", "Storage", "{AA4C3434-0924-4AA8-8B18-EAC94D470B5E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Products", "Products", "{45C14986-E6A2-4B55-9DFF-078B62845C6E}"
 	ProjectSection(SolutionItems) = preProject
 		Products.bin = Products.bin
 		Products.json = Products.json
 		Products.xml = Products.xml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Students", "Students", "{CAAEB5FC-4234-4D3D-AF87-9784FEA384FC}"
+	ProjectSection(SolutionItems) = preProject
+		Students.bin = Students.bin
+		Students.json = Students.json
+		Students.xml = Students.xml
 	EndProjectSection
 EndProject
 Global
@@ -69,6 +78,8 @@ Global
 		{4251BB6E-24B0-4F48-A60E-71B50C0991FC} = {AC30014D-8968-49F2-BA67-E653E6A52ED9}
 		{216D9C84-BC4E-4B30-86EC-A3F14660DF7E} = {AC30014D-8968-49F2-BA67-E653E6A52ED9}
 		{D6790818-03B2-42D2-8BF0-015F58CD8BEE} = {38117A04-D25B-4510-A4A1-6708FE52D3E0}
+		{45C14986-E6A2-4B55-9DFF-078B62845C6E} = {AA4C3434-0924-4AA8-8B18-EAC94D470B5E}
+		{CAAEB5FC-4234-4D3D-AF87-9784FEA384FC} = {AA4C3434-0924-4AA8-8B18-EAC94D470B5E}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A7B0E5AE-EB05-48E4-9882-BE200DBA1732}

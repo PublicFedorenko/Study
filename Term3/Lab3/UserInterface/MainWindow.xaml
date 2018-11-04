@@ -19,8 +19,8 @@
         <Button x:Name="Button_Exit" Content="Exit" HorizontalAlignment="Left" Margin="689,378,0,0" VerticalAlignment="Top" Width="75" Cursor="Hand" Click="Button_Exit_Click"/>
         <Button x:Name="Button_Browse" Content="Browse..." HorizontalAlignment="Left" Margin="282,343,0,0" VerticalAlignment="Top" Width="68" Click="Button_Browse_Click" Height="24" Cursor="Hand"/>
         <Label Content="FIle:" HorizontalAlignment="Left" Margin="10,314,0,0" VerticalAlignment="Top" Width="38" FontSize="14"/>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="735,21,0,0" VerticalAlignment="Top" Width="45"/>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="735,45,0,0" VerticalAlignment="Top" Width="45"/>
+        <Button x:Name="Button_Add" Content="Add" HorizontalAlignment="Left" Margin="735,21,0,0" VerticalAlignment="Top" Width="45" Click="Button_Add_Click"/>
+        <Button x:Name="Button_Remove" Content="Remove" HorizontalAlignment="Left" Margin="735,45,0,0" VerticalAlignment="Top" Width="45"/>
 
     </Grid>
 </Window>

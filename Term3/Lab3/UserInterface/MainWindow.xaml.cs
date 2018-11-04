@@ -26,11 +26,15 @@ namespace UserInterface
     public partial class MainWindow : Window
     {
         private readonly Config MainConfig;
+        private List<Product> _products;
+        private List<Student> _students;
 
         public MainWindow()
         {
             InitializeComponent();
             MainConfig = new Config();
+            _products = new List<Product>();
+            _students = new List<Student>();
         }
 
         public void Window_Loaded(object sender, RoutedEventArgs e)
@@ -207,11 +211,16 @@ namespace UserInterface
             TextBox_FilePath.Text = openFileDialog.FileName;
         }
 
-        private void ComboBox_EntityType_SelectionChanged(object sender, RoutedEventArgs e) //TODO rewrite
+        private void ComboBox_EntityType_SelectionChanged(object sender, RoutedEventArgs e)
         {
             string selectedEntity = ComboBox_EntityType.SelectedItem.ToString();
             bool isDefaultType = Convert.ToBoolean(ComboBox_EntityType.SelectedIndex);
             Button_Read.IsEnabled = isDefaultType && selectedEntity != MainConfig.CurrentEntity; 
+        }
+
+        private void Button_Add_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

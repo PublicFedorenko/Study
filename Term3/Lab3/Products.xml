@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<ArrayOfProduct xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Product>
+    <Name>aaa</Name>
+    <DateOfManufacture>0001-01-01T00:00:00</DateOfManufacture>
+    <Lifetime>1</Lifetime>
+    <ExpirationDate>0001-01-01T00:00:00</ExpirationDate>
+  </Product>
+  <Product>
+    <Name>bbb</Name>
+    <DateOfManufacture>0001-01-01T00:00:00</DateOfManufacture>
+    <Lifetime>2</Lifetime>
+    <ExpirationDate>0001-01-01T00:00:00</ExpirationDate>
+  </Product>
+  <Product>
+    <Name>ccc</Name>
+    <DateOfManufacture>0001-01-01T00:00:00</DateOfManufacture>
+    <Lifetime>3</Lifetime>
+    <ExpirationDate>0001-01-01T00:00:00</ExpirationDate>
+  </Product>
+</ArrayOfProduct>

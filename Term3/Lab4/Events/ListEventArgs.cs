@@ -11,9 +11,10 @@ namespace Events
         public string Message { get; }
         public int Length { get; }
 
-        public ListEventArgs(string mess, int len)
+        public ListEventArgs(string message, int length)
         {
-
+            Message = message;
+            Length = length;
         }
     }
 }

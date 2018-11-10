@@ -8,5 +8,13 @@ namespace BusinessLogicLayer.Entities
 {
     public class Row
     {
+        private string data;
+        
+        public string Data { get => data; set => data = value; }
+
+        public Row(string value)
+        {
+            Data = value;
+        }
     }
 }

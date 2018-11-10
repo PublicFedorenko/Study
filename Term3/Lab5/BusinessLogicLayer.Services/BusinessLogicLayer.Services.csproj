@@ -41,11 +41,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Interfaces\ISerializerService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\XmlSerializerService.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Interfaces\" />
-    <Folder Include="Services\" />
+    <ProjectReference Include="..\DataAccessLayer.Serialization\DataAccessLayer.Serialization.csproj">
+      <Project>{8DB345C8-2B02-4DAD-890B-3EC9B84D5B5C}</Project>
+      <Name>DataAccessLayer.Serialization</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

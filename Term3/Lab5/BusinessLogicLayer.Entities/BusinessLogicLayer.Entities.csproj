@@ -41,6 +41,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MyLinkedList\MyLinkedList.cs" />
+    <Compile Include="MyLinkedList\Node.cs" />
     <Compile Include="Row.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Text.cs" />

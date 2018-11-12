@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BusinessLogicLayer.Entities.MyLinkedList;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,9 +11,9 @@ namespace BusinessLogicLayer.Entities
     {
         public delegate Row RowSelector(Row row1, Row row2);
 
-        private List<Row> rows;
+        private MyLinkedList<Row> rows;
 
-        public List<Row> Rows { get => rows; set => rows = value; }
+        public MyLinkedList<Row> Rows { get => rows; set => rows = value; }
 
         public void AddRow(string value)
         {

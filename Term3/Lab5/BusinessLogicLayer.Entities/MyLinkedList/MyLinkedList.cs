@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,13 +7,13 @@ using System.Threading.Tasks;
 
 namespace BusinessLogicLayer.Entities.MyLinkedList
 {
-    public class MyLinkedList<T>// : ICollection<T>
+    public class MyLinkedList<T> : ICollection<T>
     {
         private Node<T> Head { get; set; }
         private Node<T> Tail { get; set; }
         public int Count { get; set; }
         public bool IsReadOnly { get; set; }
-        
+
         public MyLinkedList()
         {
             Head = null;
@@ -34,7 +35,16 @@ namespace BusinessLogicLayer.Entities.MyLinkedList
                     curr = curr.Next;
                 return curr.Value;
             }
-        } 
+            set
+            {
+                if (Head == null)
+                    throw new InvalidOperationException();
+                if (index < 0 || index > Count - 1)
+                    throw new IndexOutOfRangeException();
+
+
+            }
+        }
 
         public void Add(T item)
         {
@@ -52,6 +62,35 @@ namespace BusinessLogicLayer.Entities.MyLinkedList
             Tail = node;
         }
 
+        public void Insert(int index, T item)
+        {
+            if (index < 0 || index > Count - 1)
+                throw new IndexOutOfRangeException();
+
+            if (Head == null)
+            {
+                Add(item);
+                return;
+            }
+            
+            Node<T> curr = Head;
+            for (int i = 0; i < index; i++)
+            {
+                if (i == index)
+                {
+                    Node<T> node = new Node<T>(item);
+                    if (curr.Prev != null)
+                        curr.Prev.Next = node;
+                    node.Prev = curr.Prev;
+                    curr.Prev = node;
+                    node.Next = curr;
+                    Count++;
+                }
+                curr = curr.Next;
+            }
+
+        }
+
         public bool Remove(T item)
         {
             if (Head == null)
@@ -60,7 +99,7 @@ namespace BusinessLogicLayer.Entities.MyLinkedList
             Node<T> curr = Head;
             while (curr != null)
             {
-                if (curr.Equals(item))
+                if (curr.Value.Equals(item))
                 {
                     if (curr.Prev != null)
                         curr.Prev.Next = curr.Next;
@@ -74,9 +113,36 @@ namespace BusinessLogicLayer.Entities.MyLinkedList
             return false;
         }
 
+        public void RemoveAt(int index)
+        {
+            if (Head == null)
+                throw new InvalidOperationException();
+            if (index < 0 || index > Count - 1)
+                throw new IndexOutOfRangeException();
+
+            Node<T> curr = Head;
+            int i = 0;
+            while (curr != null)
+            {
+                if (i == index)
+                {
+                    if (curr.Prev != null)
+                        curr.Prev.Next = curr.Next;
+                    if (curr.Next != null)
+                        curr.Next.Prev = curr.Prev;
+                    Count--;
+                    return;
+                }
+                curr = curr.Next;
+                i++;
+            }
+        }
+
         public void Clear()
         {
-            // NotSupportedException() if ICollection is read-only
+            if (IsReadOnly)
+                throw new NotSupportedException();
+
             Head = null;
             Tail = null;
             Count = 0;
@@ -87,7 +153,7 @@ namespace BusinessLogicLayer.Entities.MyLinkedList
             Node<T> curr = Head;
             while (curr != null)
             {
-                if (curr.Equals(item))
+                if (curr.Value.Equals(item))
                     return true;
             }
             return false;
@@ -107,6 +173,17 @@ namespace BusinessLogicLayer.Entities.MyLinkedList
             {
                 array[index] = this[index];
             }
+        }
+
+        IEnumerator<T> IEnumerable<T>.GetEnumerator()
+        {
+            for (Node<T> curr = Head; curr != null; curr = curr.Next)
+                yield return curr.Value;
+        }
+
+        public IEnumerator GetEnumerator()
+        {
+            return GetEnumerator();
         }
     }
 }

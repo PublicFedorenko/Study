@@ -64,17 +64,17 @@ namespace BusinessLogicLayer.Entities.MyLinkedList
 
         public void Insert(int index, T item)
         {
-            if (index < 0 || index > Count - 1)
-                throw new IndexOutOfRangeException();
-
-            if (Head == null)
+            if (Head == null && index == 0)
             {
                 Add(item);
                 return;
             }
-            
+
+            if (index < 0 || index > Count - 1)
+                throw new IndexOutOfRangeException();
+
             Node<T> curr = Head;
-            for (int i = 0; i < index; i++)
+            for (int i = 0; i < Count; i++)
             {
                 if (i == index)
                 {
@@ -85,10 +85,10 @@ namespace BusinessLogicLayer.Entities.MyLinkedList
                     curr.Prev = node;
                     node.Next = curr;
                     Count++;
+                    return;
                 }
                 curr = curr.Next;
             }
-
         }
 
         public bool Remove(T item)

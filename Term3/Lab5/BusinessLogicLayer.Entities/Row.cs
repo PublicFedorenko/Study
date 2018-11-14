@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BusinessLogicLayer.Entities
 {
-    public class Row
+    public class Row : IComparable
     {
         private string data;
         
@@ -15,6 +15,11 @@ namespace BusinessLogicLayer.Entities
         public Row(string value)
         {
             Data = value;
+        }
+
+        public int CompareTo(object obj)
+        {
+            return this.Data.CompareTo(((Row)obj).Data);
         }
     }
 }

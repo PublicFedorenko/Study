@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace BusinessLogicLayer.Entities.MyLinkedList
 {
-    public class MyLinkedList<T> : ICollection<T>
+    public class MyLinkedList<T> : IList<T> where T : IComparable
     {
         private Node<T> Head { get; set; }
         private Node<T> Tail { get; set; }
@@ -184,6 +184,23 @@ namespace BusinessLogicLayer.Entities.MyLinkedList
         public IEnumerator GetEnumerator()
         {
             return GetEnumerator();
+        }
+
+        public int IndexOf(T item)
+        {
+            if (Head == null)
+                throw new InvalidOperationException();
+
+            Node<T> curr = Head;
+            int index = 0;
+            while (curr != null)
+            {
+                if (curr.Equals(item))
+                    return index;
+                index++;
+                curr = curr.Next;
+            }
+            return -1;
         }
     }
 }
